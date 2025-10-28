@@ -68,6 +68,8 @@ export const ServicesGrid = () => {
           {services.map((service, index) => (
             <div
               key={index}
+              role="article"
+              aria-label={`${service.letter}: ${service.title}`}
               className={`sticky ${
                 isVisible ? "animate-fade-in" : "opacity-0"
               }`}
@@ -80,7 +82,7 @@ export const ServicesGrid = () => {
               <div className="relative h-full rounded-3xl bg-card/50 backdrop-blur-xl border border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-500 hover:shadow-[0_30px_80px_hsl(var(--primary)/0.3)] group">
                 <div className="grid md:grid-cols-2 gap-0">
                   {/* Image/Icon Side */}
-                  <div className="relative">
+                  <div className="relative" role="img" aria-label={`${service.title} illustration`}>
                     {service.hasImage ? (
                       <div className="relative h-64 md:h-full overflow-hidden">
                         <img
