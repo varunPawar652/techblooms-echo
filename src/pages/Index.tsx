@@ -1,29 +1,25 @@
-import Navigation from "@/components/Navigation";
-import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
-import Skills from "@/components/Skills";
-import Workshops from "@/components/Workshops";
-import Advantages from "@/components/Advantages";
-import About from "@/components/About";
-import Contact from "@/components/Contact";
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { ServicesGrid } from "@/components/ServicesGrid";
+import { Workshops } from "@/components/Workshops";
+import { Features } from "@/components/Features";
+import { About } from "@/components/About";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <Hero />
-      <Stats />
-      <Skills />
-      <Workshops />
-      <Advantages />
-      <About />
-      <Contact />
-      
-      <footer className="py-8 px-4 border-t border-white/10">
-        <div className="container mx-auto text-center text-foreground/60 text-sm">
-          <p>© 2025 TechBlooms. Empowering Future Tech Leaders.</p>
-        </div>
-      </footer>
+    <div className="min-h-screen bg-background text-foreground">
+      <Navbar />
+      <main>
+        <Hero />
+        <ServicesGrid />
+        <Workshops />
+        <Features />
+        <About />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 };
