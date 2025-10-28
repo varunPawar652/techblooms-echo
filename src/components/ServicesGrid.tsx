@@ -1,5 +1,6 @@
 import { Activity, BarChart3, Sparkles, Database, MessageSquare } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useParallax } from "@/hooks/use-parallax";
 
 const services = [
   {
@@ -43,10 +44,14 @@ const services = [
 
 export const ServicesGrid = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
+  const parallaxBg = useParallax(0.2);
 
   return (
     <section ref={ref} className="py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-section" />
+      <div 
+        className="absolute inset-0 bg-gradient-section" 
+        style={{ transform: `translateY(${parallaxBg}px)` }}
+      />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20 space-y-6 animate-fade-in">
@@ -89,6 +94,7 @@ export const ServicesGrid = () => {
                           src={service.image}
                           alt={service.title}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          style={{ transform: `scale(1.1) translateY(${-parallaxBg * 0.3}px)` }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/50" />
                       </div>

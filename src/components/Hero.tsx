@@ -1,21 +1,38 @@
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
+import { useParallax } from "@/hooks/use-parallax";
 
 export const Hero = () => {
+  const parallaxSlow = useParallax(0.3);
+  const parallaxMedium = useParallax(0.5);
+  const parallaxFast = useParallax(0.7);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background with Grid */}
       <div className="absolute inset-0 bg-gradient-hero">
-        <div className="absolute inset-0 opacity-20">
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{ transform: `translateY(${parallaxSlow}px)` }}
+        >
           <div className="absolute inset-0" style={{
             backgroundImage: 'linear-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary) / 0.1) 1px, transparent 1px)',
             backgroundSize: '50px 50px'
           }} />
         </div>
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] animate-float" />
-          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] animate-float" style={{ animationDelay: "2s" }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-secondary/15 rounded-full blur-[140px] animate-float" style={{ animationDelay: "4s" }} />
+          <div 
+            className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] animate-float"
+            style={{ transform: `translateY(${parallaxMedium}px)` }}
+          />
+          <div 
+            className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] animate-float" 
+            style={{ animationDelay: "2s", transform: `translateY(${-parallaxMedium}px)` }} 
+          />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-secondary/15 rounded-full blur-[140px] animate-float" 
+            style={{ animationDelay: "4s", transform: `translateY(${parallaxFast}px)` }} 
+          />
         </div>
       </div>
 

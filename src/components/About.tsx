@@ -1,5 +1,6 @@
 import { CheckCircle } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useParallax } from "@/hooks/use-parallax";
 
 const benefits = [
   "Learn from industry experts and academic leaders",
@@ -12,13 +13,23 @@ const benefits = [
 
 export const About = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
+  const parallaxBg = useParallax(0.2);
 
   return (
     <section id="about" ref={ref} className="py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-section" />
+      <div 
+        className="absolute inset-0 bg-gradient-section"
+        style={{ transform: `translateY(${parallaxBg}px)` }}
+      />
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-secondary/15 rounded-full blur-[120px]" />
+        <div 
+          className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[120px]"
+          style={{ transform: `translateY(${parallaxBg * 0.5}px)` }}
+        />
+        <div 
+          className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-secondary/15 rounded-full blur-[120px]"
+          style={{ transform: `translateY(${-parallaxBg * 0.5}px)` }}
+        />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -69,6 +80,7 @@ export const About = () => {
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
                   alt="Students learning"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  style={{ transform: `translateY(${parallaxBg * 0.1}px)` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-secondary/30" />
               </div>
