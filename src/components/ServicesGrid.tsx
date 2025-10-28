@@ -71,7 +71,10 @@ export const ServicesGrid = () => {
               className={`group relative ${
                 isVisible ? "animate-roll-up" : "opacity-0"
               } ${service.hasImage ? "md:row-span-1" : ""}`}
-              style={{ animationDelay: isVisible ? `${index * 0.15}s` : "0s" }}
+              style={{ 
+                animationDelay: isVisible ? `${index * 0.15}s` : "0s",
+                zIndex: services.length - index
+              }}
             >
               <div className="relative h-full rounded-3xl bg-card/50 backdrop-blur-xl border border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-500 hover:shadow-[0_30px_80px_hsl(var(--primary)/0.3)]">
                 {service.hasImage && (
