@@ -70,7 +70,7 @@ export const ServicesGrid = () => {
               key={index}
               role="article"
               aria-label={`${service.letter}: ${service.title}`}
-              className={`sticky ${
+              className={`PiVxGu MDrwHQ wixui-box sticky ${
                 isVisible ? "animate-fade-in" : "opacity-0"
               }`}
               style={{ 
